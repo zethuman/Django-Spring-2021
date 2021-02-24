@@ -34,10 +34,10 @@
                 </tr>
               </thead>
 
-              <tbody>
-                 <tr>
-                  <th scope="col">0</th>
-                    {% for item in completed_tasks.task0 %}
+             <tbody>
+               {% for item in completed_tasks %}
+                <tr>
+                  <th scope="col">{{ item.id}}</th>
                         <td scope="col">{{ item.task }}</td>
                         <td scope="col">{{ item.created }}</td>
                         <td scope="col">{{ item.due }}</td>
@@ -47,9 +47,8 @@
                             {% else %}
                             <td scope="col"><button class="btn btn-info btn-sm">Not Done</button></td>
                         {% endif %}
-                    {% endfor %}
                 </tr>
-
+                   {% endfor %}
               </tbody>
             </table>
         </div>
