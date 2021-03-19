@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+     <h1>Todos in {{ tasks.id }}</h1>
+{% endblock %}
+
+{% block body %}
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    {% for item in headers %}
+                        <th scope="col">{{ item }}</th>
+                    {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+               {% for item in tasks %}
+                <tr>
+                  <th scope="col">{{ item.id}}</th>
+                        <td scope="col">{{ item.task }}</td>
+                        <td scope="col">{{ item.created }}</td>
+                        <td scope="col">{{ item.due }}</td>
+                        <td scope="col">{{ item.owner }}</td>
+                        {% if item.mark == True %}
+                           <td scope="col"><button class="btn btn-info btn-sm">Done</button></td>
+                        {% endif %}
+                </tr>
+                   {% endfor %}
+              </tbody>
+            </table>
+{% endblock %}
